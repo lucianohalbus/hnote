@@ -16,6 +16,7 @@
 		CB3E9BD72B9CFE9300180BFF /* MatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BD62B9CFE9300180BFF /* MatchListView.swift */; };
 		CB3E9BD92B9D01EE00180BFF /* MatchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BD82B9D01EE00180BFF /* MatchCardView.swift */; };
 		CB3E9BDC2B9D027A00180BFF /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BDB2B9D027A00180BFF /* Color+Extension.swift */; };
+		CB3E9BDE2B9D174500180BFF /* MatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BDD2B9D174500180BFF /* MatchDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CB3E9BD62B9CFE9300180BFF /* MatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListView.swift; sourceTree = "<group>"; };
 		CB3E9BD82B9D01EE00180BFF /* MatchCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCardView.swift; sourceTree = "<group>"; };
 		CB3E9BDB2B9D027A00180BFF /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		CB3E9BDD2B9D174500180BFF /* MatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				CB3E9BD42B9CEEEB00180BFF /* AddNewMatchView.swift */,
 				CB3E9BD62B9CFE9300180BFF /* MatchListView.swift */,
 				CB3E9BD82B9D01EE00180BFF /* MatchCardView.swift */,
+				CB3E9BDD2B9D174500180BFF /* MatchDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				CB3E9BC52B9CED4000180BFF /* ContentView.swift in Sources */,
 				CB3E9BDC2B9D027A00180BFF /* Color+Extension.swift in Sources */,
 				CB3E9BC32B9CED4000180BFF /* hnoteApp.swift in Sources */,
+				CB3E9BDE2B9D174500180BFF /* MatchDetailView.swift in Sources */,
 				CB3E9BD32B9CED9000180BFF /* Match.swift in Sources */,
 				CB3E9BD52B9CEEEB00180BFF /* AddNewMatchView.swift in Sources */,
 				CB3E9BD92B9D01EE00180BFF /* MatchCardView.swift in Sources */,

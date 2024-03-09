@@ -67,7 +67,9 @@ struct AddNewMatchView: View {
                             playerFour: playerFour,
                             scoreTeamOne: 0,
                             scoreTeamTwo: 0,
-                            targetScore: targetScore)
+                            targetScore: targetScore, 
+                            isMatchFinished: false
+                        )
                         
                         context.insert(match)
                         

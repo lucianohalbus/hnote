@@ -13,8 +13,9 @@ final class Match: Identifiable {
     var scoreTeamOne: Int
     var scoreTeamTwo: Int
     var targetScore: Int
+    var isMatchFinished: Bool
 
-    init(date: Date, playerOne: String, playerTwo: String, playerThree: String, playerFour: String, scoreTeamOne: Int, scoreTeamTwo: Int, targetScore: Int) {
+    init(date: Date, playerOne: String, playerTwo: String, playerThree: String, playerFour: String, scoreTeamOne: Int, scoreTeamTwo: Int, targetScore: Int, isMatchFinished: Bool) {
         self.date = date
         self.playerOne = playerOne
         self.playerTwo = playerTwo
@@ -23,5 +24,6 @@ final class Match: Identifiable {
         self.scoreTeamOne = scoreTeamOne
         self.scoreTeamTwo = scoreTeamTwo
         self.targetScore = targetScore
+        self.isMatchFinished = isMatchFinished
     }
 }

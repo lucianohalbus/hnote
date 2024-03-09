@@ -13,11 +13,12 @@ struct MatchListView: View {
             List {
                 ForEach(matches) { match in
                    MatchCardView(match: match)
+                        .padding(.bottom, 10)
                 }
                 .onDelete(perform: delete(indexSet:))
                 .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .navigationTitle("Lista de Partidas")
             }
-            .navigationTitle("Lista de Partidas")
             .scrollContentBackground(.hidden)
         }
     }

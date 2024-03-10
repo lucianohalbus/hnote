@@ -42,5 +42,6 @@ struct MatchCardView: View {
                     .stroke(Color.cardColor, lineWidth: 2)
             )
         }
+
     }
 }

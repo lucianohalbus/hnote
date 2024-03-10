@@ -7,7 +7,7 @@ struct MatchListView: View {
     
     @Query private var matches: [Match]
     @Environment(\.modelContext) private var context
-    @State private var presentAddNewMAtchView: Bool = false
+    @State private var presentAddNewMatchView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -22,12 +22,12 @@ struct MatchListView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle("Lista de Partidas")
             .navigationDestination(for: Match.self) { match in
-                MatchDetailView(match: match)
+                MatchResumeView(match: match)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        presentAddNewMAtchView.toggle()
+                        presentAddNewMatchView.toggle()
                     } label: {
                         Image(systemName: "plus.circle")
                             .foregroundStyle(Color.white, Color.white)
@@ -35,7 +35,7 @@ struct MatchListView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color.cardColor)
-                    .sheet(isPresented: $presentAddNewMAtchView, content: {
+                    .sheet(isPresented: $presentAddNewMatchView, content: {
                         AddNewMatchView()
                     })
                 }

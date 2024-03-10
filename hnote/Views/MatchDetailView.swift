@@ -32,82 +32,158 @@ struct MatchDetailView: View {
         self._targetScore = State.init(initialValue: match.targetScore)
     }
     var body: some View {
-        Form {
+        VStack {
             if !match.isMatchFinished {
                 Group {
                     VStack {
                         Text("Pontuação de Vitória")
+                            .font(.title)
                         Text(match.targetScore.description)
+                            .font(.title2)
+                            .bold()
+                            .padding(.bottom, 5)
+                        
+                        Divider()
+                            .frame(height: 1)
+                            .background(Color.cardColor)
                         
                         HStack {
-                            VStack {
+                            VStack(alignment: .leading) {
                                 Text(match.playerOne)
+                                    .font(.title2)
+                                    .bold()
+                                
                                 Text(match.playerTwo)
+                                    .font(.title2)
+                                    .bold()
+                                
+                                Text(match.scoreTeamOne.description)
+                                    .font(.title2)
+                                    .bold()
+                                    .padding(.bottom, 10)
+                                
                                 Text("Pontos de Canastras")
+                                    .font(.headline)
+                                
                                 TextField("Pontos", value: $canastraScoreOne, format: .number)
-                                    .keyboardType(.numbersAndPunctuation)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom, 20)
+                                
                                 Text("Pontos das Cartas")
+                                    .font(.headline)
+                                
                                 TextField("Pontos", value: $cardScoreOne, format: .number)
-                                    .keyboardType(.numbersAndPunctuation)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom, 20)
+                                
                                 Text("Pontos à descontar")
+                                    .font(.headline)
+                                
                                 TextField("Pontos", value: $negativeScoreOne, format: .number)
-                                    .keyboardType(.numbersAndPunctuation)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom, 20)
                             }
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(TextAlignment.leading)
                             
-                            VStack {
+                            
+                            Divider()
+                                .frame(width: 1, height: 300)
+                                .background(Color.cardColor)
+                            
+                            
+                            VStack(alignment: .trailing) {
                                 Text(match.playerThree)
+                                    .font(.title2)
+                                    .bold()
+                                
                                 Text(match.playerFour)
+                                    .font(.title2)
+                                    .bold()
+                                
+                                Text(match.scoreTeamTwo.description)
+                                    .font(.title2)
+                                    .bold()
+                                    .padding(.bottom, 10)
+                                
                                 Text("Pontos de Canastras")
+                                    .font(.headline)
+                                
                                 TextField("Pontos", value: $canastraScoreTwo, format: .number)
-                                    .keyboardType(.numbersAndPunctuation)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom, 20)
+                                
                                 Text("Pontos das Cartas")
+                                    .font(.headline)
+                                
                                 TextField("Pontos", value: $cardScoreTwo, format: .number)
-                                    .keyboardType(.numbersAndPunctuation)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom, 20)
+                                
                                 Text("Pontos à descontar")
+                                    .font(.headline)
+                                
                                 TextField("Pontos", value: $negativeScoreTwo, format: .number)
-                                    .keyboardType(.numbersAndPunctuation)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom, 20)
                             }
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(TextAlignment.trailing)
                         }
                         
                     }
+                    .padding(.horizontal, 10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .inset(by: 2)
+                            .stroke(Color.cardColor, lineWidth: 2)
+                    )
+                    .padding(.horizontal, 5)
                     
                 }
                 .textFieldStyle(.roundedBorder)
                 
-                Button("Save") {
-                                      
-                    match.playerOne = playerOne
-                    match.playerTwo = playerTwo
-                    match.playerThree = playerThree
-                    match.playerFour = playerFour
-                    match.targetScore = targetScore ?? 3000
-                    match.scoreTeamOne = calculeTeamScore(
-                        dbScore: match.scoreTeamOne,
-                        canastraScore: canastraScoreOne ?? 0,
-                        cardScore: cardScoreOne ?? 0,
-                        negativeScore: negativeScoreOne ?? 0
-                    )
-                    match.scoreTeamTwo = calculeTeamScore(
-                        dbScore: match.scoreTeamTwo,
-                        canastraScore: canastraScoreTwo ?? 0,
-                        cardScore: cardScoreTwo ?? 0,
-                        negativeScore: negativeScoreTwo ?? 0
-                    )
-                   
+                HStack {
                     
-                    if match.scoreTeamOne >= targetScore ?? 3000  || match.scoreTeamTwo >= targetScore ?? 30000 {
-                        match.isMatchFinished = true
-                    } else {
-                        match.isMatchFinished = false
+                    Spacer()
+                    
+                    Button("Save") {
+                                          
+                        match.playerOne = playerOne
+                        match.playerTwo = playerTwo
+                        match.playerThree = playerThree
+                        match.playerFour = playerFour
+                        match.targetScore = targetScore ?? 3000
+                        match.scoreTeamOne = calculeTeamScore(
+                            dbScore: match.scoreTeamOne,
+                            canastraScore: canastraScoreOne ?? 0,
+                            cardScore: cardScoreOne ?? 0,
+                            negativeScore: negativeScoreOne ?? 0
+                        )
+                        match.scoreTeamTwo = calculeTeamScore(
+                            dbScore: match.scoreTeamTwo,
+                            canastraScore: canastraScoreTwo ?? 0,
+                            cardScore: cardScoreTwo ?? 0,
+                            negativeScore: negativeScoreTwo ?? 0
+                        )
+                       
+                        
+                        if match.scoreTeamOne >= targetScore ?? 3000  || match.scoreTeamTwo >= targetScore ?? 30000 {
+                            match.isMatchFinished = true
+                        } else {
+                            match.isMatchFinished = false
+                        }
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        
+                        dismiss()
                     }
                     
-                    do {
-                        try context.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                    
-                    dismiss()
+                    Spacer()
                 }
             } else {
                 VStack {
@@ -129,6 +205,8 @@ struct MatchDetailView: View {
                     }
                 }
             }
+            
+            Spacer()
         }
 //        .toolbar {
 //            ToolbarItem(placement: .topBarTrailing) {

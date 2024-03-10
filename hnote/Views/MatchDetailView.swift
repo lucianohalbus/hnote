@@ -14,6 +14,12 @@ struct MatchDetailView: View {
     @State private var scoreTeamOne: Int? = nil
     @State private var scoreTeamTwo: Int? = nil
     @State private var targetScore: Int? = nil
+    @State private var cardScoreOne: Int? = nil
+    @State private var canastraScoreOne: Int? = nil
+    @State private var negativeScoreOne: Int? = nil
+    @State private var cardScoreTwo: Int? = nil
+    @State private var canastraScoreTwo: Int? = nil
+    @State private var negativeScoreTwo: Int? = nil
     
     init(match: Match) {
         self.match = match
@@ -37,14 +43,28 @@ struct MatchDetailView: View {
                             VStack {
                                 Text(match.playerOne)
                                 Text(match.playerTwo)
-                                TextField("Score", value: $scoreTeamOne, formatter:  NumberFormatter())
+                                Text("Pontos de Canastras")
+                                TextField("Pontos", value: $canastraScoreOne, format: .number)
+                                    .keyboardType(.numbersAndPunctuation)
+                                Text("Pontos das Cartas")
+                                TextField("Pontos", value: $cardScoreOne, format: .number)
+                                    .keyboardType(.numbersAndPunctuation)
+                                Text("Pontos à descontar")
+                                TextField("Pontos", value: $negativeScoreOne, format: .number)
                                     .keyboardType(.numbersAndPunctuation)
                             }
                             
                             VStack {
                                 Text(match.playerThree)
                                 Text(match.playerFour)
-                                TextField("Score", value: $scoreTeamTwo, formatter:  NumberFormatter())
+                                Text("Pontos de Canastras")
+                                TextField("Pontos", value: $canastraScoreTwo, format: .number)
+                                    .keyboardType(.numbersAndPunctuation)
+                                Text("Pontos das Cartas")
+                                TextField("Pontos", value: $cardScoreTwo, format: .number)
+                                    .keyboardType(.numbersAndPunctuation)
+                                Text("Pontos à descontar")
+                                TextField("Pontos", value: $negativeScoreTwo, format: .number)
                                     .keyboardType(.numbersAndPunctuation)
                             }
                         }
@@ -55,25 +75,25 @@ struct MatchDetailView: View {
                 .textFieldStyle(.roundedBorder)
                 
                 Button("Save") {
-                    
-                    if match.scoreTeamOne == 0 {
-                        match.scoreTeamOne = scoreTeamOne ?? 0
-                        
-                    } else {
-                        match.scoreTeamOne += scoreTeamOne ?? 0
-                    }
-                    
-                    if match.scoreTeamTwo == 0 {
-                        match.scoreTeamTwo = scoreTeamTwo ?? 0
-                    } else {
-                        match.scoreTeamTwo += scoreTeamTwo ?? 0
-                    }
-                    
+                                      
                     match.playerOne = playerOne
                     match.playerTwo = playerTwo
                     match.playerThree = playerThree
                     match.playerFour = playerFour
                     match.targetScore = targetScore ?? 3000
+                    match.scoreTeamOne = calculeTeamScore(
+                        dbScore: match.scoreTeamOne,
+                        canastraScore: canastraScoreOne ?? 0,
+                        cardScore: cardScoreOne ?? 0,
+                        negativeScore: negativeScoreOne ?? 0
+                    )
+                    match.scoreTeamTwo = calculeTeamScore(
+                        dbScore: match.scoreTeamTwo,
+                        canastraScore: canastraScoreTwo ?? 0,
+                        cardScore: cardScoreTwo ?? 0,
+                        negativeScore: negativeScoreTwo ?? 0
+                    )
+                   
                     
                     if match.scoreTeamOne >= targetScore ?? 3000  || match.scoreTeamTwo >= targetScore ?? 30000 {
                         match.isMatchFinished = true
@@ -118,5 +138,10 @@ struct MatchDetailView: View {
 //            }
 //        }
 //        .navigationTitle("Detalhes da Partida")
+    }
+    
+    private func calculeTeamScore(dbScore: Int, canastraScore: Int, cardScore: Int, negativeScore: Int) -> Int {
+        let parcialScore: Int =  (canastraScore + cardScore - negativeScore)
+        return parcialScore + dbScore
     }
 }

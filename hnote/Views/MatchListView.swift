@@ -7,6 +7,7 @@ struct MatchListView: View {
     
     @Query private var matches: [Match]
     @Environment(\.modelContext) private var context
+    @State private var presentAddNewMAtchView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -17,9 +18,28 @@ struct MatchListView: View {
                 }
                 .onDelete(perform: delete(indexSet:))
                 .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .navigationTitle("Lista de Partidas")
             }
             .scrollContentBackground(.hidden)
+            .navigationTitle("Lista de Partidas")
+            .navigationDestination(for: Match.self) { match in
+                MatchDetailView(match: match)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        presentAddNewMAtchView.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .foregroundStyle(Color.white, Color.white)
+                            .bold()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color.cardColor)
+                    .sheet(isPresented: $presentAddNewMAtchView, content: {
+                        AddNewMatchView()
+                    })
+                }
+            }
         }
     }
     

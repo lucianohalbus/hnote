@@ -42,8 +42,5 @@ struct MatchCardView: View {
                     .stroke(Color.cardColor, lineWidth: 2)
             )
         }
-        .navigationDestination(for: Match.self) { match in
-            MatchDetailView(match: match)
-        }
     }
 }

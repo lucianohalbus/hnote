@@ -208,6 +208,7 @@ struct MatchDetailView: View {
             
             Spacer()
         }
+        .navigationTitle("")
 //        .toolbar {
 //            ToolbarItem(placement: .topBarTrailing) {
 //                Button(isEditing ? "Done" : "Edit") {

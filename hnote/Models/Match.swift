@@ -14,6 +14,9 @@ final class Match: Identifiable {
     var scoreTeamTwo: Int
     var targetScore: Int
     var isMatchFinished: Bool
+    
+    @Relationship(deleteRule: .cascade, inverse: \MatchResume.match)
+    var matchResume: [MatchResume] = [MatchResume]()
 
     init(date: Date, playerOne: String, playerTwo: String, playerThree: String, playerFour: String, scoreTeamOne: Int, scoreTeamTwo: Int, targetScore: Int, isMatchFinished: Bool) {
         self.date = date

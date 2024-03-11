@@ -39,20 +39,7 @@ struct MatchResumeView: View {
                             .interactiveDismissDisabled()
                     })
                 
-                } else {
-                    
-                    Text("Partida Encerrada!")
-                        .font(.title)
-                        .foregroundStyle(Color.cardColor)
-                        .frame(maxWidth: .infinity)
-                        .padding(20)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .inset(by: 2)
-                                .stroke(Color.cardColor, lineWidth: 2)
-                        )
-                }
+                } 
             }
         }
         .padding()
@@ -61,7 +48,7 @@ struct MatchResumeView: View {
     
     private var matchResumeViewHeader: some View {
         VStack {
-            Text("Pontuação da Rodada")
+            Text(!match.isMatchFinished ? "Pontuação" : "Partida Encerrada")
                 .font(.title)
                 .foregroundColor(.cardColor)
                 .bold()

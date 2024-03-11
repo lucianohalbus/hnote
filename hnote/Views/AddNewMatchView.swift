@@ -21,14 +21,21 @@ struct AddNewMatchView: View {
     var body: some View {
         NavigationStack {
             VStack {
-              
+                Text("Criar Nova Partida")
+                    .font(.title2)
+                    .foregroundStyle(Color.primary)
+                    .padding(.bottom, 20 )
+                
                 addNewMatchViewHeader
+                    .padding(.bottom, 10)
                 
                 addNewMatchViewTeams
-                
-               
-                
+                    .padding(.bottom, 20)
+    
                 HStack {
+                    
+                    Spacer()
+                    
                     Button("Cancel", role: .destructive) {
                         dismiss()
                     }
@@ -62,8 +69,11 @@ struct AddNewMatchView: View {
                     }
                     .buttonStyle(.bordered)
                     .disabled(!isValid)
+                    
+                    Spacer()
                 }
-                .padding(.top, 20)
+                
+                Spacer()
             }
             .padding()
         }
@@ -78,6 +88,10 @@ struct AddNewMatchView: View {
                 .keyboardType(.numberPad)
                 .textFieldStyle(.roundedBorder)
                 .multilineTextAlignment(TextAlignment.center)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.textFieldBorderColor)
+                )
         }
         .padding(20)
         .overlay(
@@ -93,7 +107,15 @@ struct AddNewMatchView: View {
                 Text("Dupla 1")
                     .font(.title)
                 TextField("Nome do Jogador 1", text: $playerOne)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.textFieldBorderColor)
+                    )
                 TextField("Nome do Jogador 2", text: $playerTwo)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.textFieldBorderColor)
+                    )
             }
             .multilineTextAlignment(TextAlignment.leading)
             .textFieldStyle(.roundedBorder)
@@ -102,7 +124,15 @@ struct AddNewMatchView: View {
                 Text("Dupla 2")
                     .font(.title)
                 TextField("Nome do Jogador 1", text: $playerThree)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.textFieldBorderColor)
+                    )
                 TextField("Nome do Jogador 2", text: $playerFour)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.textFieldBorderColor)
+                    )
             }
             .multilineTextAlignment(TextAlignment.trailing)
             .textFieldStyle(.roundedBorder)

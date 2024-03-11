@@ -43,7 +43,7 @@ struct MatchListView: View {
                                 .presentationDetents([.fraction(0.6)])
                                 .interactiveDismissDisabled()
                         })
-                    }
+                }
             }
             }
             .navigationTitle("Lista de Partidas")

@@ -70,6 +70,7 @@ struct MatchResumeView: View {
                     Text(match.scoreTeamOne.description)
                         .foregroundStyle(Color.cardColor)
                 }
+                .foregroundStyle(Color.primary)
                 
                 Spacer()
                 
@@ -85,6 +86,7 @@ struct MatchResumeView: View {
                     Text(match.scoreTeamTwo.description)
                         .foregroundStyle(Color.cardColor)
                 }
+                .foregroundStyle(Color.primary)
             }
             .font(.title)
             .foregroundColor(.black)

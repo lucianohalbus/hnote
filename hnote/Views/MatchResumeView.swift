@@ -59,10 +59,10 @@ struct MatchResumeView: View {
                     Text(match.playerOne)
                     Text(match.playerTwo)
                     Text(match.scoreTeamOne.description)
-                        .foregroundStyle(Color.yellow)
+                        .foregroundStyle(Color.cardColor)
                         .bold()
                 }
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color.black)
                 
                 Spacer()
                 
@@ -76,15 +76,15 @@ struct MatchResumeView: View {
                     Text(match.playerThree)
                     Text(match.playerFour)
                     Text(match.scoreTeamTwo.description)
-                        .foregroundStyle(Color.yellow)
+                        .foregroundStyle(Color.cardColor)
                         .bold()
                 }
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color.black)
             }
             .font(.title)
             .foregroundColor(.white)
             .padding(15)
-            .background(Color.cardColor)
+            .background(Color.textViewBackgroundColor)
             .cornerRadius(20)
         }
     }

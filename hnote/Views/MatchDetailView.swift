@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct MatchDetailView: View {
+struct AddNewMatchTurnView: View {
     let match: Match
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss

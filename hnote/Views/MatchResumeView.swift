@@ -4,7 +4,7 @@ import SwiftUI
 
 struct MatchResumeView: View {
     var match: Match
-    @State private var presentMatchDetailView: Bool = false
+    @State private var presentAddNewMatchTurnView: Bool = false
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct MatchResumeView: View {
                 
                 Button {
                     
-                    presentMatchDetailView.toggle()
+                    presentAddNewMatchTurnView.toggle()
                     
                 } label: {
                     Image(systemName: "plus.circle")
@@ -31,9 +31,9 @@ struct MatchResumeView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(Color.cardColor)
-                .sheet(isPresented: $presentMatchDetailView, content: {
+                .sheet(isPresented: $presentAddNewMatchTurnView, content: {
                     
-                    MatchDetailView(match: match)
+                    AddNewMatchTurnView(match: match)
                         .presentationDetents([.fraction(0.7)])
                         .interactiveDismissDisabled()
                 })
@@ -104,7 +104,7 @@ struct MatchResumeView: View {
             ForEach(match.matchResume) { matchResume in
                 
                 VStack {
-                    Text(Date().formatted(date: .abbreviated, time: .shortened))
+                    Text(matchResume.date.formatted(date: .abbreviated, time: .shortened))
                        
                     HStack {
                         Spacer()

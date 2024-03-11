@@ -4,7 +4,7 @@ import SwiftUI
 import SwiftData
 
 struct MatchListView: View {
-    
+
     @Query private var matches: [Match]
     @Environment(\.modelContext) private var context
     @State private var presentAddNewMatchView: Bool = false

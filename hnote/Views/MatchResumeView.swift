@@ -13,14 +13,35 @@ struct MatchResumeView: View {
             
             ScrollView {
                 VStack {
-                    ForEach((1...3), id: \.self) {_ in
+                    ForEach(match.matchResume) { matchResume in
                         
-                        matchResumeViewList
-                        
+                        VStack {
+                            Text(Date().formatted(date: .abbreviated, time: .shortened))
+                               
+                            HStack {
+                                Spacer()
+                                Text(matchResume.partialScoreTeamOne.description)
+                                
+                                Spacer()
+                                Text("Pontos da Rodada")
+                                
+                                
+                                Spacer()
+                                Text(matchResume.partialScoreTeamTwo.description)
+                                
+                                Spacer()
+                            }
+                            
+                            Divider()
+                                .frame(width: 100, height: 1)
+                                .background(Color.cardColor)
+                                .padding(.bottom, 10)
+                        }
+                        .font(.callout)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.top, 30)
+                .padding(.top, 10)
                 .background()
                 .cornerRadius(20)
                 .overlay(
@@ -28,33 +49,39 @@ struct MatchResumeView: View {
                         .inset(by: 2)
                         .stroke(Color.cardColor, lineWidth: 2)
                 )
-            }
-            
-            Button {
                 
-                presentMatchDetailView.toggle()
                 
-            } label: {
-                Image(systemName: "plus.circle")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .foregroundStyle(Color.white, Color.white)
-                    .bold()
+                
+                Button {
+                    
+                    presentMatchDetailView.toggle()
+                    
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 30)
+                        .foregroundStyle(Color.white, Color.white)
+                        .bold()
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Color.cardColor)
+                
             }
             .sheet(isPresented: $presentMatchDetailView, content: {
                 
                 MatchDetailView(match: match)
-                
+                    .presentationDetents([.fraction(0.7)])
+                    .interactiveDismissDisabled()
             })
-            
-            Spacer()
         }
         .padding()
+        
     }
     
     private var matchResumeViewHeader: some View {
         VStack {
-            Text("3000")
+            Text("Pontuação da Rodada")
                 .font(.title)
                 .foregroundColor(.cardColor)
                 .bold()
@@ -62,8 +89,10 @@ struct MatchResumeView: View {
             HStack {
 
                 VStack (alignment: .leading) {
-                    Text("Player")
-                    Text("Player")
+                    Text(match.playerOne)
+                    Text(match.playerTwo)
+                    Text(match.scoreTeamOne.description)
+                        .foregroundStyle(Color.cardColor)
                 }
                 
                 Spacer()
@@ -75,8 +104,10 @@ struct MatchResumeView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("Player")
-                    Text("Player")
+                    Text(match.playerThree)
+                    Text(match.playerFour)
+                    Text(match.scoreTeamTwo.description)
+                        .foregroundStyle(Color.cardColor)
                 }
             }
             .font(.title)
@@ -90,41 +121,7 @@ struct MatchResumeView: View {
         }
     }
     
-    private var matchResumeViewList: some View {
-        VStack {
-            Text(Date().formatted(date: .abbreviated, time: .shortened))
-               
-            HStack {
-                
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    Text("--")
-                    Text("--")
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .center) {
-                    Text("Pontos da Rodada")
-                    Text("Total Parcial")
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("--")
-                    Text("--")
-                }
-                
-                Spacer()
-            }
-            
-            Divider()
-                .frame(width: 100, height: 1)
-                .background(Color.cardColor)
-                .padding(.bottom, 10)
-        }
-        .font(.callout)
-    }
+//    private var matchResumeViewList: some View {
+//
+//    }
 }

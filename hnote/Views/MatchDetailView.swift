@@ -101,19 +101,19 @@ struct MatchDetailView: View {
                         match.playerThree = playerThree
                         match.playerFour = playerFour
                         match.targetScore = targetScore ?? 3000
-                        match.scoreTeamOne = calculeTeamScore(
+                        match.scoreTeamOne = calculateTotalScore(
                             dbScore: match.scoreTeamOne,
                             canastraScore: canastraScoreOne ?? 0,
                             cardScore: cardScoreOne ?? 0,
                             negativeScore: negativeScoreOne ?? 0
                         )
-                        match.scoreTeamTwo = calculeTeamScore(
+                        
+                        match.scoreTeamTwo = calculateTotalScore(
                             dbScore: match.scoreTeamTwo,
                             canastraScore: canastraScoreTwo ?? 0,
                             cardScore: cardScoreTwo ?? 0,
                             negativeScore: negativeScoreTwo ?? 0
                         )
-                       
                         
                         if match.scoreTeamOne >= targetScore ?? 3000  || match.scoreTeamTwo >= targetScore ?? 30000 {
                             match.isMatchFinished = true
@@ -122,6 +122,27 @@ struct MatchDetailView: View {
                         }
                         
                         do {
+                            
+                            let partialScoreTeamOne: Int = calculatePartialScore(
+                                canastraScore: canastraScoreOne ?? 0,
+                                cardScore: cardScoreOne ?? 0,
+                                negativeScore: negativeScoreOne ?? 0
+                            )
+                            
+                            let partialScoreTeamTwo: Int = calculatePartialScore(
+                                canastraScore: canastraScoreTwo ?? 0,
+                                cardScore: cardScoreTwo ?? 0,
+                                negativeScore: negativeScoreTwo ?? 0
+                            )
+                            
+                            let matchResume: MatchResume = MatchResume(
+                                date: Date(),
+                                partialScoreTeamOne: partialScoreTeamOne,
+                                partialScoreTeamTwo: partialScoreTeamTwo
+                            )
+                            
+                            match.matchResume.append(matchResume)
+                            
                             try context.save()
                         } catch {
                             print(error.localizedDescription)
@@ -158,15 +179,6 @@ struct MatchDetailView: View {
             Spacer()
         }
         .padding(20)
-        .navigationTitle("")
-//        .toolbar {
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Button(isEditing ? "Done" : "Edit") {
-//                    isEditing.toggle()
-//                }
-//            }
-//        }
-//        .navigationTitle("Detalhes da Partida")
     }
     
     private var scoresLeftSide: some View {
@@ -249,9 +261,13 @@ struct MatchDetailView: View {
         .multilineTextAlignment(TextAlignment.trailing)
     }
     
+    private func calculatePartialScore(canastraScore: Int, cardScore: Int, negativeScore: Int) -> Int {
+        return (canastraScore + cardScore - negativeScore)
+        
+    }
     
-    private func calculeTeamScore(dbScore: Int, canastraScore: Int, cardScore: Int, negativeScore: Int) -> Int {
-        let parcialScore: Int =  (canastraScore + cardScore - negativeScore)
-        return parcialScore + dbScore
+    private func calculateTotalScore(dbScore: Int, canastraScore: Int, cardScore: Int, negativeScore: Int) -> Int {
+        let partialScore: Int =  (canastraScore + cardScore - negativeScore)
+        return partialScore + dbScore
     }
 }

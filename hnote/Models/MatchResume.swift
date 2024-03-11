@@ -7,14 +7,14 @@ import SwiftData
 @Model
 final class MatchResume {
     var date: Date
-    var scoreTeamOne: Int
-    var scoreTeamTwo: Int
+    var partialScoreTeamOne: Int
+    var partialScoreTeamTwo: Int
     var match: Match?
     
-    init(date: Date, scoreTeamOne: Int, scoreTeamTwo: Int, match: Match? = nil) {
+    init(date: Date, partialScoreTeamOne: Int, partialScoreTeamTwo: Int, match: Match? = nil) {
         self.date = date
-        self.scoreTeamOne = scoreTeamOne
-        self.scoreTeamTwo = scoreTeamTwo
+        self.partialScoreTeamOne = partialScoreTeamOne
+        self.partialScoreTeamTwo = partialScoreTeamTwo
         self.match = match
     }
 }

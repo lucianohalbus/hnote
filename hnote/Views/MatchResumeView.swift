@@ -12,45 +12,10 @@ struct MatchResumeView: View {
             matchResumeViewHeader
             
             ScrollView {
-                VStack {
-                    ForEach(match.matchResume) { matchResume in
-                        
-                        VStack {
-                            Text(Date().formatted(date: .abbreviated, time: .shortened))
-                               
-                            HStack {
-                                Spacer()
-                                Text(matchResume.partialScoreTeamOne.description)
-                                
-                                Spacer()
-                                Text("Pontos da Rodada")
-                                
-                                
-                                Spacer()
-                                Text(matchResume.partialScoreTeamTwo.description)
-                                
-                                Spacer()
-                            }
-                            
-                            Divider()
-                                .frame(width: 100, height: 1)
-                                .background(Color.cardColor)
-                                .padding(.bottom, 10)
-                        }
-                        .font(.callout)
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.top, 10)
-                .background()
-                .cornerRadius(20)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .inset(by: 2)
-                        .stroke(Color.cardColor, lineWidth: 2)
-                )
                 
+                matchResumeViewList
                 
+                if !match.isMatchFinished {
                 
                 Button {
                     
@@ -66,14 +31,25 @@ struct MatchResumeView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(Color.cardColor)
+                .sheet(isPresented: $presentMatchDetailView, content: {
+                    
+                    MatchDetailView(match: match)
+                        .presentationDetents([.fraction(0.7)])
+                        .interactiveDismissDisabled()
+                })
+                
+            } else {
+                
+                Text("Partida Encerrada!")
+                    .font(.title)
+                    .padding()
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.cardColor, lineWidth: 2.0)    
+                    }
+            }
                 
             }
-            .sheet(isPresented: $presentMatchDetailView, content: {
-                
-                MatchDetailView(match: match)
-                    .presentationDetents([.fraction(0.7)])
-                    .interactiveDismissDisabled()
-            })
         }
         .padding()
         
@@ -121,7 +97,43 @@ struct MatchResumeView: View {
         }
     }
     
-//    private var matchResumeViewList: some View {
-//
-//    }
+    private var matchResumeViewList: some View {
+        VStack {
+            ForEach(match.matchResume) { matchResume in
+                
+                VStack {
+                    Text(Date().formatted(date: .abbreviated, time: .shortened))
+                       
+                    HStack {
+                        Spacer()
+                        Text(matchResume.partialScoreTeamOne.description)
+                        
+                        Spacer()
+                        Text("Pontos da Rodada")
+                        
+                        
+                        Spacer()
+                        Text(matchResume.partialScoreTeamTwo.description)
+                        
+                        Spacer()
+                    }
+                    
+                    Divider()
+                        .frame(width: 100, height: 1)
+                        .background(Color.cardColor)
+                        .padding(.bottom, 10)
+                }
+                .font(.callout)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 10)
+        .background()
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .inset(by: 2)
+                .stroke(Color.cardColor, lineWidth: 2)
+        )
+    }
 }

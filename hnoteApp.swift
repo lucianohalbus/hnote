@@ -2,9 +2,14 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
 @main
 struct hnoteApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()

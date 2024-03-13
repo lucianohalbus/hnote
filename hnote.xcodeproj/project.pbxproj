@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB2AA5222BA1D885002F513C /* MatchFBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5212BA1D885002F513C /* MatchFBViewModel.swift */; };
+		CB2AA5242BA1D89F002F513C /* MatchListFBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5232BA1D89F002F513C /* MatchListFBViewModel.swift */; };
+		CB2AA5262BA1D8DA002F513C /* MatchFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5252BA1D8DA002F513C /* MatchFB.swift */; };
 		CB3E9BC32B9CED4000180BFF /* hnoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BC22B9CED4000180BFF /* hnoteApp.swift */; };
 		CB3E9BC52B9CED4000180BFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BC42B9CED4000180BFF /* ContentView.swift */; };
 		CB3E9BC72B9CED4100180BFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3E9BC62B9CED4100180BFF /* Assets.xcassets */; };
@@ -35,6 +38,9 @@
 		CB0D4E0F2BA12738006E21C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB0D4E102BA1277D006E21C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB0D4E112BA1279A006E21C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB2AA5212BA1D885002F513C /* MatchFBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchFBViewModel.swift; sourceTree = "<group>"; };
+		CB2AA5232BA1D89F002F513C /* MatchListFBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListFBViewModel.swift; sourceTree = "<group>"; };
+		CB2AA5252BA1D8DA002F513C /* MatchFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchFB.swift; sourceTree = "<group>"; };
 		CB3E9BBF2B9CED4000180BFF /* hnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3E9BC22B9CED4000180BFF /* hnoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hnoteApp.swift; sourceTree = "<group>"; };
 		CB3E9BC42B9CED4000180BFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 			children = (
 				CB3E9BD22B9CED9000180BFF /* MatchDB.swift */,
 				CB3E9BE12B9DFA6600180BFF /* MatchResumeDB.swift */,
+				CB2AA5252BA1D8DA002F513C /* MatchFB.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +208,8 @@
 		CBD353D02BA08BE3006A4EA9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CB2AA5212BA1D885002F513C /* MatchFBViewModel.swift */,
+				CB2AA5232BA1D89F002F513C /* MatchListFBViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -314,6 +323,7 @@
 				CB3E9BDC2B9D027A00180BFF /* Color+Extension.swift in Sources */,
 				CB3E9BC32B9CED4000180BFF /* hnoteApp.swift in Sources */,
 				CB3E9BDE2B9D174500180BFF /* MatchDetailView.swift in Sources */,
+				CB2AA5242BA1D89F002F513C /* MatchListFBViewModel.swift in Sources */,
 				CB3E9BD32B9CED9000180BFF /* MatchDB.swift in Sources */,
 				CB3E9BE42B9DFCA100180BFF /* MatchResumeView.swift in Sources */,
 				CB3E9BD52B9CEEEB00180BFF /* AddNewMatchView.swift in Sources */,
@@ -321,7 +331,9 @@
 				CB3E9BE22B9DFA6600180BFF /* MatchResumeDB.swift in Sources */,
 				CB3E9BD92B9D01EE00180BFF /* MatchCardView.swift in Sources */,
 				CB3E9BD72B9CFE9300180BFF /* MatchListView.swift in Sources */,
+				CB2AA5262BA1D8DA002F513C /* MatchFB.swift in Sources */,
 				CBD353D42BA08C94006A4EA9 /* Constants.swift in Sources */,
+				CB2AA5222BA1D885002F513C /* MatchFBViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

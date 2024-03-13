@@ -20,7 +20,7 @@ struct hnoteApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: [Match.self])
+                .modelContainer(for: [MatchDB.self])
                 
         }
     }

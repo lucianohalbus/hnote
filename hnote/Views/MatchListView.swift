@@ -5,7 +5,7 @@ import SwiftData
 
 struct MatchListView: View {
 
-    @Query private var matches: [Match]
+    @Query private var matchesDB: [MatchDB]
     @Environment(\.modelContext) private var context
     @State private var presentAddNewMatchView: Bool = false
     
@@ -13,8 +13,8 @@ struct MatchListView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(matches) { match in
-                       MatchCardView(match: match)
+                    ForEach(matchesDB) { match in
+                       MatchCardView(matchDB: match)
                             .padding(.bottom, 10)
                     }
                     .onDelete(perform: delete(indexSet:))
@@ -22,8 +22,8 @@ struct MatchListView: View {
                     .listRowBackground(Color.clear)
                 }
                 .scrollContentBackground(.hidden)
-                .navigationDestination(for: Match.self) { match in
-                    MatchResumeView(match: match)
+                .navigationDestination(for: MatchDB.self) { match in
+                    MatchResumeView(matchDB: match)
                 }
 
                 .toolbar {
@@ -52,7 +52,7 @@ struct MatchListView: View {
     
     private func delete(indexSet: IndexSet) {
         indexSet.forEach { index in
-            let match = matches[index]
+            let match = matchesDB[index]
             context.delete(match)
             
             do {

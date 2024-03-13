@@ -45,7 +45,7 @@ struct AddNewMatchView: View {
                     
                     Button("Save") {
                         guard let targetScore else { return }
-                        let match: Match = Match(
+                        let match: MatchDB = MatchDB(
                             date: Date(),
                             playerOne: playerOne,
                             playerTwo: playerTwo,

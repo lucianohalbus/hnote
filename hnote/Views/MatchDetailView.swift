@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct AddNewMatchTurnView: View {
-    let match: Match
+    let matchDB: MatchDB
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
@@ -30,8 +30,8 @@ struct AddNewMatchTurnView: View {
         negativeScoreTwo != nil 
     }
     
-    init(match: Match) {
-        self.match = match
+    init(match: MatchDB) {
+        self.matchDB = match
         self._playerOne = State.init(initialValue: match.playerOne)
         self._playerTwo = State.init(initialValue: match.playerTwo)
         self._playerThree = State.init(initialValue: match.playerThree)
@@ -42,7 +42,7 @@ struct AddNewMatchTurnView: View {
     }
     var body: some View {
         VStack {
-            if !match.isMatchFinished {
+            if !matchDB.isMatchFinished {
                 Group {
                     VStack {
             
@@ -96,29 +96,29 @@ struct AddNewMatchTurnView: View {
                     
                     Button("Save") {
                                           
-                        match.playerOne = playerOne
-                        match.playerTwo = playerTwo
-                        match.playerThree = playerThree
-                        match.playerFour = playerFour
-                        match.targetScore = targetScore ?? 3000
-                        match.scoreTeamOne = calculateTotalScore(
-                            dbScore: match.scoreTeamOne,
+                        matchDB.playerOne = playerOne
+                        matchDB.playerTwo = playerTwo
+                        matchDB.playerThree = playerThree
+                        matchDB.playerFour = playerFour
+                        matchDB.targetScore = targetScore ?? 3000
+                        matchDB.scoreTeamOne = calculateTotalScore(
+                            dbScore: matchDB.scoreTeamOne,
                             canastraScore: canastraScoreOne ?? 0,
                             cardScore: cardScoreOne ?? 0,
                             negativeScore: negativeScoreOne ?? 0
                         )
                         
-                        match.scoreTeamTwo = calculateTotalScore(
-                            dbScore: match.scoreTeamTwo,
+                        matchDB.scoreTeamTwo = calculateTotalScore(
+                            dbScore: matchDB.scoreTeamTwo,
                             canastraScore: canastraScoreTwo ?? 0,
                             cardScore: cardScoreTwo ?? 0,
                             negativeScore: negativeScoreTwo ?? 0
                         )
                         
-                        if match.scoreTeamOne >= targetScore ?? 3000  || match.scoreTeamTwo >= targetScore ?? 30000 {
-                            match.isMatchFinished = true
+                        if matchDB.scoreTeamOne >= targetScore ?? 3000  || matchDB.scoreTeamTwo >= targetScore ?? 30000 {
+                            matchDB.isMatchFinished = true
                         } else {
-                            match.isMatchFinished = false
+                            matchDB.isMatchFinished = false
                         }
                         
                         do {
@@ -135,13 +135,13 @@ struct AddNewMatchTurnView: View {
                                 negativeScore: negativeScoreTwo ?? 0
                             )
                             
-                            let matchResume: MatchResume = MatchResume(
+                            let matchResume: MatchResumeDB = MatchResumeDB(
                                 date: Date(),
                                 partialScoreTeamOne: partialScoreTeamOne,
                                 partialScoreTeamTwo: partialScoreTeamTwo
                             )
                             
-                            match.matchResume.append(matchResume)
+                            matchDB.matchResumeDB.append(matchResume)
                             
                             try context.save()
                         } catch {
@@ -158,19 +158,19 @@ struct AddNewMatchTurnView: View {
             } else {
                 VStack {
                     Text("Pontuação de Vitória")
-                    Text(match.targetScore.description)
+                    Text(matchDB.targetScore.description)
                     
                     HStack {
                         VStack {
-                            Text(match.playerOne)
-                            Text(match.playerTwo)
-                            Text(match.scoreTeamOne.description)
+                            Text(matchDB.playerOne)
+                            Text(matchDB.playerTwo)
+                            Text(matchDB.scoreTeamOne.description)
                         }
                         
                         VStack {
-                            Text(match.playerThree)
-                            Text(match.playerFour)
-                            Text(match.scoreTeamTwo.description)
+                            Text(matchDB.playerThree)
+                            Text(matchDB.playerFour)
+                            Text(matchDB.scoreTeamTwo.description)
                         }
                     }
                 }
@@ -183,15 +183,15 @@ struct AddNewMatchTurnView: View {
     
     private var scoresLeftSide: some View {
         VStack(alignment: .leading) {
-            Text(match.playerOne)
+            Text(matchDB.playerOne)
                 .font(.title2)
                 .bold()
             
-            Text(match.playerTwo)
+            Text(matchDB.playerTwo)
                 .font(.title2)
                 .bold()
             
-            Text(match.scoreTeamOne.description)
+            Text(matchDB.scoreTeamOne.description)
                 .font(.title2)
                 .bold()
                 .padding(.bottom, 10)
@@ -223,15 +223,15 @@ struct AddNewMatchTurnView: View {
     
     private var scoresRightSide: some View {
         VStack(alignment: .trailing) {
-            Text(match.playerThree)
+            Text(matchDB.playerThree)
                 .font(.title2)
                 .bold()
             
-            Text(match.playerFour)
+            Text(matchDB.playerFour)
                 .font(.title2)
                 .bold()
             
-            Text(match.scoreTeamTwo.description)
+            Text(matchDB.scoreTeamTwo.description)
                 .font(.title2)
                 .bold()
                 .padding(.bottom, 10)

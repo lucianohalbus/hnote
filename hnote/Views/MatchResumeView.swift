@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct MatchResumeView: View {
-    var match: Match
+    var matchDB: MatchDB
     @State private var presentAddNewMatchTurnView: Bool = false
     
     var body: some View {
@@ -15,7 +15,7 @@ struct MatchResumeView: View {
                 
                 matchResumeViewList
                 
-                if !match.isMatchFinished {
+                if !matchDB.isMatchFinished {
                 
                     Button {
                         
@@ -34,7 +34,7 @@ struct MatchResumeView: View {
                     }
                     .sheet(isPresented: $presentAddNewMatchTurnView, content: {
                         
-                        AddNewMatchTurnView(match: match)
+                        AddNewMatchTurnView(match: matchDB)
                             .presentationDetents([.fraction(0.7)])
                             .interactiveDismissDisabled()
                     })
@@ -48,7 +48,7 @@ struct MatchResumeView: View {
     
     private var matchResumeViewHeader: some View {
         VStack {
-            Text(!match.isMatchFinished ? "Pontuação" : "Partida Encerrada")
+            Text(!matchDB.isMatchFinished ? "Pontuação" : "Partida Encerrada")
                 .font(.title)
                 .foregroundColor(.cardColor)
                 .bold()
@@ -56,9 +56,9 @@ struct MatchResumeView: View {
             HStack {
 
                 VStack (alignment: .leading) {
-                    Text(match.playerOne)
-                    Text(match.playerTwo)
-                    Text(match.scoreTeamOne.description)
+                    Text(matchDB.playerOne)
+                    Text(matchDB.playerTwo)
+                    Text(matchDB.scoreTeamOne.description)
                         .foregroundStyle(Color.cardColor)
                         .bold()
                 }
@@ -73,9 +73,9 @@ struct MatchResumeView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text(match.playerThree)
-                    Text(match.playerFour)
-                    Text(match.scoreTeamTwo.description)
+                    Text(matchDB.playerThree)
+                    Text(matchDB.playerFour)
+                    Text(matchDB.scoreTeamTwo.description)
                         .foregroundStyle(Color.cardColor)
                         .bold()
                 }
@@ -91,7 +91,7 @@ struct MatchResumeView: View {
     
     private var matchResumeViewList: some View {
         VStack(spacing: 5) {
-            ForEach(match.matchResume) { matchResume in
+            ForEach(matchDB.matchResumeDB) { matchResume in
     
                 HStack(spacing: 5) {
 

@@ -3,10 +3,10 @@
 import SwiftUI
 
 struct MatchCardView: View {
-    let match: Match
+    let matchDB: MatchDB
     
     var body: some View {
-        NavigationLink(value: match) {
+        NavigationLink(value: matchDB) {
             VStack {
                 Text(Date(), format: Date.FormatStyle(date: .numeric))
                     .foregroundStyle(Color.primary)
@@ -15,19 +15,19 @@ struct MatchCardView: View {
                 HStack {
                     
                     VStack(alignment: .leading) {
-                        Text(match.playerOne)
-                        Text(match.playerTwo)
-                        Text(match.scoreTeamOne.description)
-                            .foregroundStyle(match.scoreTeamOne >= match.scoreTeamTwo ? Color.green : Color.red)
+                        Text(matchDB.playerOne)
+                        Text(matchDB.playerTwo)
+                        Text(matchDB.scoreTeamOne.description)
+                            .foregroundStyle(matchDB.scoreTeamOne >= matchDB.scoreTeamTwo ? Color.green : Color.red)
                     }
                     
                     Spacer()
                     
                     VStack(alignment: .trailing) {
-                        Text(match.playerThree)
-                        Text(match.playerFour)
-                        Text(match.scoreTeamTwo.description)
-                            .foregroundStyle(match.scoreTeamTwo >= match.scoreTeamOne ? Color.green : Color.red)
+                        Text(matchDB.playerThree)
+                        Text(matchDB.playerFour)
+                        Text(matchDB.scoreTeamTwo.description)
+                            .foregroundStyle(matchDB.scoreTeamTwo >= matchDB.scoreTeamOne ? Color.green : Color.red)
                     }
                 }
                 .foregroundStyle(Color.primary)

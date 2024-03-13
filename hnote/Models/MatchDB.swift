@@ -4,7 +4,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Match: Identifiable {
+final class MatchDB: Identifiable {
     var date: Date
     var playerOne: String
     var playerTwo: String
@@ -15,8 +15,8 @@ final class Match: Identifiable {
     var targetScore: Int
     var isMatchFinished: Bool
     
-    @Relationship(deleteRule: .cascade, inverse: \MatchResume.match)
-    var matchResume: [MatchResume] = [MatchResume]()
+    @Relationship(deleteRule: .cascade, inverse: \MatchResumeDB.matchDB)
+    var matchResumeDB: [MatchResumeDB] = [MatchResumeDB]()
 
     init(date: Date, playerOne: String, playerTwo: String, playerThree: String, playerFour: String, scoreTeamOne: Int, scoreTeamTwo: Int, targetScore: Int, isMatchFinished: Bool) {
         self.date = date

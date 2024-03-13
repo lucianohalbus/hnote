@@ -46,9 +46,6 @@
 		CB3E9BE12B9DFA6600180BFF /* MatchResume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResume.swift; sourceTree = "<group>"; };
 		CB3E9BE32B9DFCA100180BFF /* MatchResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResumeView.swift; sourceTree = "<group>"; };
 		CB9DE1952BA0E212004B8284 /* QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QA.xcconfig; sourceTree = "<group>"; };
-		CB9DE1972BA0E3DB004B8284 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CBA7FA602BA0D0E200D655B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CBA7FA622BA0D10700D655B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBD353D12BA08C6D006A4EA9 /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
 		CBD353D32BA08C94006A4EA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
@@ -160,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				CBD353DC2BA09BAA006A4EA9 /* Prod.xcconfig */,
-				CBA7FA622BA0D10700D655B8 /* GoogleService-Info.plist */,
 			);
 			path = Prod;
 			sourceTree = "<group>";
@@ -169,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */,
-				CBA7FA602BA0D0E200D655B8 /* GoogleService-Info.plist */,
 			);
 			path = Dev;
 			sourceTree = "<group>";
@@ -178,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				CB9DE1952BA0E212004B8284 /* QA.xcconfig */,
-				CB9DE1972BA0E3DB004B8284 /* GoogleService-Info.plist */,
 			);
 			path = QA;
 			sourceTree = "<group>";

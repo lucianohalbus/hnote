@@ -32,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB0D4E0F2BA12738006E21C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB0D4E102BA1277D006E21C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB0D4E112BA1279A006E21C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB3E9BBF2B9CED4000180BFF /* hnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3E9BC22B9CED4000180BFF /* hnoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hnoteApp.swift; sourceTree = "<group>"; };
 		CB3E9BC42B9CED4000180BFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		CB6971872BA0BA1A00D14AD7 /* Prod */ = {
 			isa = PBXGroup;
 			children = (
+				CB0D4E112BA1279A006E21C7 /* GoogleService-Info.plist */,
 				CBD353DC2BA09BAA006A4EA9 /* Prod.xcconfig */,
 			);
 			path = Prod;
@@ -164,6 +168,7 @@
 		CB6971892BA0BA1A00D14AD7 /* Dev */ = {
 			isa = PBXGroup;
 			children = (
+				CB0D4E102BA1277D006E21C7 /* GoogleService-Info.plist */,
 				CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */,
 			);
 			path = Dev;
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9DE1952BA0E212004B8284 /* QA.xcconfig */,
+				CB0D4E0F2BA12738006E21C7 /* GoogleService-Info.plist */,
 			);
 			path = QA;
 			sourceTree = "<group>";

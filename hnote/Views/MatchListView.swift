@@ -8,6 +8,7 @@ struct MatchListView: View {
     @Query private var matchesDB: [MatchDB]
     @Environment(\.modelContext) private var context
     @State private var presentAddNewMatchView: Bool = false
+   // @ObservedObject var matchFBListVM: MatchFBListViewModel
     
     var body: some View {
         NavigationStack {
@@ -25,7 +26,6 @@ struct MatchListView: View {
                 .navigationDestination(for: MatchDB.self) { match in
                     MatchResumeView(matchDB: match)
                 }
-
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {

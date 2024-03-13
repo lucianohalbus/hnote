@@ -1,36 +1,37 @@
 //Created by Halbus Development
 
-//import Foundation
-//import Firebase
-//import FirebaseFirestoreSwift
-//
-//final class FirebaseRepository {
-//    private var db: Firestore
-//    
-//    init() {
-//        db = Firestore.firestore()
-//    }
-//    
-//    func getPantryCategories(completion: @escaping(Result<[Category]?, Error>) -> Void ) {
-//        db.collection(Constants.pantryCategory)
-//        .getDocuments { snapshot, error in
-//            guard let snapshot = snapshot, error == nil else {
-//                completion(.failure(error ?? NSError(domain: "No category found.", code: 101, userInfo: nil)))
-//                return
-//            }
-//            
-//            let categories: [Category]? = snapshot.documents.compactMap { document in
-//                var category = try? document.data(as: Category.self)
-//                if category != nil {
-//                    category!.id = document.documentID
-//                }
-//                return category
-//            }
-//            completion(.success(categories))
-//        }
-//    }
+import Foundation
+import Firebase
+import FirebaseFirestoreSwift
+import FirebaseAuth
+
+final class FirebaseRepository {
+    private var db: Firestore
     
-//    func add(item: Item, completion: @escaping(Result<Item?, Error>) -> Void) {
+    init() {
+        db = Firestore.firestore()
+    }
+    
+    func getPantryCategories(completion: @escaping(Result<[Category]?, Error>) -> Void ) {
+        db.collection(Constants.matches)
+        .getDocuments { snapshot, error in
+            guard let snapshot = snapshot, error == nil else {
+                completion(.failure(error ?? NSError(domain: "No category found.", code: 101, userInfo: nil)))
+                return
+            }
+            
+            let categories: [Category]? = snapshot.documents.compactMap { document in
+                var category = try? document.data(as: Category.self)
+                if category != nil {
+                    category!.id = document.documentID
+                }
+                return category
+            }
+            completion(.success(categories))
+        }
+    }
+    
+//    func add(item: MatchFB, completion: @escaping(Result<Item?, Error>) -> Void) {
 //        do {
 //            let ref = try db.collection(Constants.pantry)
 //            .addDocument(from: item)
@@ -49,26 +50,32 @@
 //        }
 //    }
 //    
-//    func get(completion: @escaping (Result<[Item]?, Error>) -> Void) {
-//        db.collection(Constants.pantry)
-//        .getDocuments { snapshot, error in
-//            guard let snapshot = snapshot, error == nil else {
-//                completion(.failure(error ?? NSError(domain: "Fatch for items failed", code: 103, userInfo: nil)))
-//                return
-//            }
-//            
-//            let items: [Item]? = snapshot.documents.compactMap { document in
-//                var item = try? document.data(as: Item.self)
-//                if item != nil {
-//                    item!.id = document.documentID
-//                }
-//                
-//                return item
-//            }
-//            completion(.success(items))
-//        }
-//    }
-//    
+    func get(completion: @escaping (Result<[MatchFB]?, Error>) -> Void) {
+        if let friendID = Auth.auth().currentUser?.uid {
+        db.collection(Constants.matches)
+            .order(by: "createdTime",  descending: false)
+            .whereField("friendsId", arrayContains: friendID)
+        .getDocuments { snapshot, error in
+            guard let snapshot = snapshot, error == nil else {
+                completion(.failure(error ?? NSError(domain: "Fatch for items failed", code: 103, userInfo: nil)))
+                return
+            }
+            
+            let items: [MatchFB]? = snapshot.documents.compactMap { document in
+                var item = try? document.data(as: MatchFB.self)
+                if item != nil {
+                    item!.id = document.documentID
+                }
+                
+                return item
+            }
+            completion(.success(items))
+        }
+        } else {
+            print("There is no user")
+        }
+    }
+    
 //    func update(item: Item, completion: @escaping(Result<Bool, Error>) -> Void) {
 //        guard let itemId = item.id else {
 //            completion(.failure(NSError(domain: "Invalid item id", code:  104, userInfo: nil)))
@@ -100,4 +107,7 @@
 //        }
 //    }
     
-// }
+}
+
+
+

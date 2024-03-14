@@ -1,8 +1,10 @@
 //Created by Halbus Development
 
 import Foundation
+import SwiftUI
 
-final class ItemListViewModel: ObservableObject {
+final class MatchFBListViewModel: ObservableObject {
+    @Environment(\.modelContext) private var context
     private var repo: FirebaseRepository
     @Published var items: [MatchFBViewModel] = []
     @Published var filterBy: String = ""
@@ -13,7 +15,7 @@ final class ItemListViewModel: ObservableObject {
         getAll()
     }
     
-    var matchesItem: [MatchFBViewModel] {
+    var matches: [MatchFBViewModel] {
         if searchText.isEmpty {
             return items
         } else {
@@ -27,7 +29,8 @@ final class ItemListViewModel: ObservableObject {
             case .success(let fetchedItems):
                 if let fetchedItems = fetchedItems {
                     DispatchQueue.main.async {
-                        self.items = fetchedItems.map(MatchFBViewModel.init).filter({ self.filterBy.isEmpty ? true : $0.playerOne == self.filterBy })
+                        self.items = fetchedItems.map(MatchFBViewModel.init)
+                            //.filter({ self.filterBy.isEmpty ? true : $0.playerOne == self.filterBy })
                     }
                 }
                 
@@ -36,14 +39,4 @@ final class ItemListViewModel: ObservableObject {
             }
         }
     }
-    
-//    func delete(item: ItemViewModel) {
-//        repo.delete(item: Item(id: item.id, name: item.name, quantity: item.quantity, categoryName: item.categoryName, expirationDate: item.expirationDate)) { error in
-//            if error == nil {
-//                self.getAll()
-//            } else {
-//                print(error?.localizedDescription ?? "")
-//            }
-//        }
-//    }
 }

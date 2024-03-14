@@ -8,7 +8,7 @@ struct MatchCardView: View {
     var body: some View {
         NavigationLink(value: matchDB) {
             VStack {
-                Text(Date(), format: Date.FormatStyle(date: .numeric))
+                Text(matchDB.myDate, format: Date.FormatStyle(date: .numeric))
                     .foregroundStyle(Color.primary)
                     .font(.title2)
                 
@@ -17,8 +17,8 @@ struct MatchCardView: View {
                     VStack(alignment: .leading) {
                         Text(matchDB.playerOne)
                         Text(matchDB.playerTwo)
-                        Text(matchDB.scoreTeamOne.description)
-                            .foregroundStyle(matchDB.scoreTeamOne >= matchDB.scoreTeamTwo ? Color.green : Color.red)
+                        Text(matchDB.finalScoreOne.description)
+                            .foregroundStyle(matchDB.finalScoreOne >= matchDB.finalScoreTwo ? Color.green : Color.red)
                     }
                     
                     Spacer()
@@ -26,8 +26,8 @@ struct MatchCardView: View {
                     VStack(alignment: .trailing) {
                         Text(matchDB.playerThree)
                         Text(matchDB.playerFour)
-                        Text(matchDB.scoreTeamTwo.description)
-                            .foregroundStyle(matchDB.scoreTeamTwo >= matchDB.scoreTeamOne ? Color.green : Color.red)
+                        Text(matchDB.finalScoreTwo.description)
+                            .foregroundStyle(matchDB.finalScoreTwo >= matchDB.finalScoreOne ? Color.green : Color.red)
                     }
                 }
                 .foregroundStyle(Color.primary)

@@ -58,7 +58,7 @@ struct MatchResumeView: View {
                 VStack (alignment: .leading) {
                     Text(matchDB.playerOne)
                     Text(matchDB.playerTwo)
-                    Text(matchDB.scoreTeamOne.description)
+                    Text(matchDB.finalScoreOne.description)
                         .foregroundStyle(Color.cardColor)
                         .bold()
                 }
@@ -75,7 +75,7 @@ struct MatchResumeView: View {
                 VStack(alignment: .trailing) {
                     Text(matchDB.playerThree)
                     Text(matchDB.playerFour)
-                    Text(matchDB.scoreTeamTwo.description)
+                    Text(matchDB.finalScoreTwo.description)
                         .foregroundStyle(Color.cardColor)
                         .bold()
                 }

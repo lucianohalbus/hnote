@@ -3,7 +3,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct MatchFBViewModel {
+struct MatchFBViewModel: Hashable, Identifiable {
     
     let matchFB: MatchFB
     

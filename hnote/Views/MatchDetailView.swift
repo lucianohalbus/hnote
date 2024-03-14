@@ -36,8 +36,8 @@ struct AddNewMatchTurnView: View {
         self._playerTwo = State.init(initialValue: match.playerTwo)
         self._playerThree = State.init(initialValue: match.playerThree)
         self._playerFour = State.init(initialValue: match.playerFour)
-        self._scoreTeamOne = State.init(initialValue:  match.scoreTeamOne)
-        self._scoreTeamTwo = State.init(initialValue: match.scoreTeamTwo)
+        self._scoreTeamOne = State.init(initialValue:  match.finalScoreOne)
+        self._scoreTeamTwo = State.init(initialValue: match.finalScoreTwo)
         self._targetScore = State.init(initialValue: match.targetScore)
     }
     var body: some View {
@@ -101,21 +101,21 @@ struct AddNewMatchTurnView: View {
                         matchDB.playerThree = playerThree
                         matchDB.playerFour = playerFour
                         matchDB.targetScore = targetScore ?? 3000
-                        matchDB.scoreTeamOne = calculateTotalScore(
-                            dbScore: matchDB.scoreTeamOne,
+                        matchDB.finalScoreOne = calculateTotalScore(
+                            dbScore: matchDB.finalScoreOne,
                             canastraScore: canastraScoreOne ?? 0,
                             cardScore: cardScoreOne ?? 0,
                             negativeScore: negativeScoreOne ?? 0
                         )
                         
-                        matchDB.scoreTeamTwo = calculateTotalScore(
-                            dbScore: matchDB.scoreTeamTwo,
+                        matchDB.finalScoreTwo = calculateTotalScore(
+                            dbScore: matchDB.finalScoreTwo,
                             canastraScore: canastraScoreTwo ?? 0,
                             cardScore: cardScoreTwo ?? 0,
                             negativeScore: negativeScoreTwo ?? 0
                         )
                         
-                        if matchDB.scoreTeamOne >= targetScore ?? 3000  || matchDB.scoreTeamTwo >= targetScore ?? 30000 {
+                        if matchDB.finalScoreOne >= targetScore ?? 3000  || matchDB.finalScoreTwo >= targetScore ?? 30000 {
                             matchDB.isMatchFinished = true
                         } else {
                             matchDB.isMatchFinished = false
@@ -164,13 +164,13 @@ struct AddNewMatchTurnView: View {
                         VStack {
                             Text(matchDB.playerOne)
                             Text(matchDB.playerTwo)
-                            Text(matchDB.scoreTeamOne.description)
+                            Text(matchDB.finalScoreOne.description)
                         }
                         
                         VStack {
                             Text(matchDB.playerThree)
                             Text(matchDB.playerFour)
-                            Text(matchDB.scoreTeamTwo.description)
+                            Text(matchDB.finalScoreTwo.description)
                         }
                     }
                 }
@@ -191,7 +191,7 @@ struct AddNewMatchTurnView: View {
                 .font(.title2)
                 .bold()
             
-            Text(matchDB.scoreTeamOne.description)
+            Text(matchDB.finalScoreOne.description)
                 .font(.title2)
                 .bold()
                 .padding(.bottom, 10)
@@ -231,7 +231,7 @@ struct AddNewMatchTurnView: View {
                 .font(.title2)
                 .bold()
             
-            Text(matchDB.scoreTeamTwo.description)
+            Text(matchDB.finalScoreTwo.description)
                 .font(.title2)
                 .bold()
                 .padding(.bottom, 10)

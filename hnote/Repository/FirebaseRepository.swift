@@ -12,25 +12,6 @@ final class FirebaseRepository {
         db = Firestore.firestore()
     }
     
-    func getPantryCategories(completion: @escaping(Result<[Category]?, Error>) -> Void ) {
-        db.collection(Constants.matches)
-        .getDocuments { snapshot, error in
-            guard let snapshot = snapshot, error == nil else {
-                completion(.failure(error ?? NSError(domain: "No category found.", code: 101, userInfo: nil)))
-                return
-            }
-            
-            let categories: [Category]? = snapshot.documents.compactMap { document in
-                var category = try? document.data(as: Category.self)
-                if category != nil {
-                    category!.id = document.documentID
-                }
-                return category
-            }
-            completion(.success(categories))
-        }
-    }
-    
 //    func add(item: MatchFB, completion: @escaping(Result<Item?, Error>) -> Void) {
 //        do {
 //            let ref = try db.collection(Constants.pantry)
@@ -53,7 +34,7 @@ final class FirebaseRepository {
     func get(completion: @escaping (Result<[MatchFB]?, Error>) -> Void) {
         if let friendID = Auth.auth().currentUser?.uid {
         db.collection(Constants.matches)
-            .order(by: "createdTime",  descending: false)
+            .order(by: "createdTime",  descending: true)
             .whereField("friendsId", arrayContains: friendID)
         .getDocuments { snapshot, error in
             guard let snapshot = snapshot, error == nil else {

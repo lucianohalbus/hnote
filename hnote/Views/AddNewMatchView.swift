@@ -1,10 +1,8 @@
 //Created by Halbus Development
 
 import SwiftUI
-import SwiftData
 
 struct AddNewMatchView: View {
-    
     @State private var playerOne: String = ""
     @State private var playerTwo: String = ""
     @State private var playerThree: String = ""
@@ -46,18 +44,18 @@ struct AddNewMatchView: View {
                     Button("Save") {
                         guard let targetScore else { return }
                         let match: MatchDB = MatchDB(
-                            date: Date(),
+                            myDate: Date(),
                             playerOne: playerOne,
                             playerTwo: playerTwo,
                             playerThree: playerThree,
                             playerFour: playerFour,
-                            scoreTeamOne: 0,
-                            scoreTeamTwo: 0,
-                            targetScore: targetScore, 
+                            finalScoreOne: 0,
+                            finalScoreTwo: 0,
+                            targetScore: targetScore,
                             isMatchFinished: false
                         )
                         
-                        context.insert(match)
+                 //       context.insert(match)
                         
                         do {
                             try context.save()

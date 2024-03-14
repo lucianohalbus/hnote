@@ -11,14 +11,12 @@
 		CB2AA52D2BA269A7002F513C /* MatchFBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA52C2BA269A7002F513C /* MatchFBViewModel.swift */; };
 		CB2AA52F2BA269FB002F513C /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA52E2BA269FB002F513C /* FirebaseRepository.swift */; };
 		CB2AA5312BA26AAD002F513C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5302BA26AAD002F513C /* Category.swift */; };
-		CB2AA5332BA26C73002F513C /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5322BA26C73002F513C /* ItemListViewModel.swift */; };
-		CB2AA5352BA26F93002F513C /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5342BA26F93002F513C /* ItemListView.swift */; };
+		CB2AA5332BA26C73002F513C /* MatchFBListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5322BA26C73002F513C /* MatchFBListViewModel.swift */; };
 		CB2AA5372BA27018002F513C /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AA5362BA27017002F513C /* CategoryEnum.swift */; };
 		CB3E9BC32B9CED4000180BFF /* hnoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BC22B9CED4000180BFF /* hnoteApp.swift */; };
 		CB3E9BC52B9CED4000180BFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BC42B9CED4000180BFF /* ContentView.swift */; };
 		CB3E9BC72B9CED4100180BFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3E9BC62B9CED4100180BFF /* Assets.xcassets */; };
 		CB3E9BCA2B9CED4100180BFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3E9BC92B9CED4100180BFF /* Preview Assets.xcassets */; };
-		CB3E9BD32B9CED9000180BFF /* MatchDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BD22B9CED9000180BFF /* MatchDB.swift */; };
 		CB3E9BD52B9CEEEB00180BFF /* AddNewMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BD42B9CEEEB00180BFF /* AddNewMatchView.swift */; };
 		CB3E9BD72B9CFE9300180BFF /* MatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BD62B9CFE9300180BFF /* MatchListView.swift */; };
 		CB3E9BD92B9D01EE00180BFF /* MatchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E9BD82B9D01EE00180BFF /* MatchCardView.swift */; };
@@ -34,26 +32,23 @@
 		CBA7FA412BA0BBE400D655B8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBA7FA402BA0BBE400D655B8 /* FirebaseFirestore */; };
 		CBA7FA432BA0BBE400D655B8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CBA7FA422BA0BBE400D655B8 /* FirebaseFirestoreSwift */; };
 		CBD353D42BA08C94006A4EA9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD353D32BA08C94006A4EA9 /* Constants.swift */; };
-		CBD353DF2BA09DE5006A4EA9 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD353DE2BA09DE5006A4EA9 /* ConfigurationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB2AA5252BA1D8DA002F513C /* MatchFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchFB.swift; sourceTree = "<group>"; };
 		CB2AA5292BA21EDC002F513C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB2AA52A2BA21EF4002F513C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CB2AA52B2BA21F05002F513C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB2AA52C2BA269A7002F513C /* MatchFBViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchFBViewModel.swift; sourceTree = "<group>"; };
 		CB2AA52E2BA269FB002F513C /* FirebaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
 		CB2AA5302BA26AAD002F513C /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		CB2AA5322BA26C73002F513C /* ItemListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
-		CB2AA5342BA26F93002F513C /* ItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		CB2AA5322BA26C73002F513C /* MatchFBListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchFBListViewModel.swift; sourceTree = "<group>"; };
 		CB2AA5362BA27017002F513C /* CategoryEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
+		CB2AA5662BA328B5002F513C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB3E9BBF2B9CED4000180BFF /* hnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3E9BC22B9CED4000180BFF /* hnoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hnoteApp.swift; sourceTree = "<group>"; };
 		CB3E9BC42B9CED4000180BFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB3E9BC62B9CED4100180BFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB3E9BC92B9CED4100180BFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CB3E9BD22B9CED9000180BFF /* MatchDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDB.swift; sourceTree = "<group>"; };
 		CB3E9BD42B9CEEEB00180BFF /* AddNewMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMatchView.swift; sourceTree = "<group>"; };
 		CB3E9BD62B9CFE9300180BFF /* MatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListView.swift; sourceTree = "<group>"; };
 		CB3E9BD82B9D01EE00180BFF /* MatchCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCardView.swift; sourceTree = "<group>"; };
@@ -63,9 +58,7 @@
 		CB3E9BE32B9DFCA100180BFF /* MatchResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResumeView.swift; sourceTree = "<group>"; };
 		CB9DE1952BA0E212004B8284 /* QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QA.xcconfig; sourceTree = "<group>"; };
 		CBD353D32BA08C94006A4EA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		CBD353DC2BA09BAA006A4EA9 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
-		CBD353DE2BA09DE5006A4EA9 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				CB2AA5302BA26AAD002F513C /* Category.swift */,
-				CB3E9BD22B9CED9000180BFF /* MatchDB.swift */,
 				CB3E9BE12B9DFA6600180BFF /* MatchResumeDB.swift */,
 				CB2AA5252BA1D8DA002F513C /* MatchFB.swift */,
 			);
@@ -141,7 +133,6 @@
 		CB3E9BD12B9CED5700180BFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB2AA5342BA26F93002F513C /* ItemListView.swift */,
 				CB3E9BD42B9CEEEB00180BFF /* AddNewMatchView.swift */,
 				CB3E9BD62B9CFE9300180BFF /* MatchListView.swift */,
 				CB3E9BD82B9D01EE00180BFF /* MatchCardView.swift */,
@@ -164,7 +155,6 @@
 		CB6971862BA0BA1A00D14AD7 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				CBD353DE2BA09DE5006A4EA9 /* ConfigurationManager.swift */,
 				CB9DE1962BA0E232004B8284 /* QA */,
 				CB6971872BA0BA1A00D14AD7 /* Prod */,
 				CB6971892BA0BA1A00D14AD7 /* Dev */,
@@ -185,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				CB2AA5292BA21EDC002F513C /* GoogleService-Info.plist */,
-				CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */,
 			);
 			path = Dev;
 			sourceTree = "<group>";
@@ -193,8 +182,8 @@
 		CB9DE1962BA0E232004B8284 /* QA */ = {
 			isa = PBXGroup;
 			children = (
+				CB2AA5662BA328B5002F513C /* GoogleService-Info.plist */,
 				CB9DE1952BA0E212004B8284 /* QA.xcconfig */,
-				CB2AA52B2BA21F05002F513C /* GoogleService-Info.plist */,
 			);
 			path = QA;
 			sourceTree = "<group>";
@@ -217,7 +206,7 @@
 		CBD353D02BA08BE3006A4EA9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CB2AA5322BA26C73002F513C /* ItemListViewModel.swift */,
+				CB2AA5322BA26C73002F513C /* MatchFBListViewModel.swift */,
 				CB2AA52C2BA269A7002F513C /* MatchFBViewModel.swift */,
 			);
 			path = ViewModels;
@@ -333,14 +322,11 @@
 				CB3E9BC32B9CED4000180BFF /* hnoteApp.swift in Sources */,
 				CB2AA5312BA26AAD002F513C /* Category.swift in Sources */,
 				CB3E9BDE2B9D174500180BFF /* MatchDetailView.swift in Sources */,
-				CB3E9BD32B9CED9000180BFF /* MatchDB.swift in Sources */,
 				CB3E9BE42B9DFCA100180BFF /* MatchResumeView.swift in Sources */,
 				CB3E9BD52B9CEEEB00180BFF /* AddNewMatchView.swift in Sources */,
-				CBD353DF2BA09DE5006A4EA9 /* ConfigurationManager.swift in Sources */,
-				CB2AA5332BA26C73002F513C /* ItemListViewModel.swift in Sources */,
+				CB2AA5332BA26C73002F513C /* MatchFBListViewModel.swift in Sources */,
 				CB3E9BE22B9DFA6600180BFF /* MatchResumeDB.swift in Sources */,
 				CB3E9BD92B9D01EE00180BFF /* MatchCardView.swift in Sources */,
-				CB2AA5352BA26F93002F513C /* ItemListView.swift in Sources */,
 				CB3E9BD72B9CFE9300180BFF /* MatchListView.swift in Sources */,
 				CB2AA5262BA1D8DA002F513C /* MatchFB.swift in Sources */,
 				CB2AA52F2BA269FB002F513C /* FirebaseRepository.swift in Sources */,
@@ -473,7 +459,6 @@
 		};
 		CB3E9BCE2B9CED4100180BFF /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,7 +491,6 @@
 		};
 		CB3E9BCF2B9CED4100180BFF /* Release-Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBD353DB2BA09B8F006A4EA9 /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
